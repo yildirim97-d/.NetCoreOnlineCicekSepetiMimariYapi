@@ -1,0 +1,163 @@
+﻿@model UserLoginModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Twitter Bootstrap shopping cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- Customize styles -->
+    <link href="style.css" rel="stylesheet" />
+    <!-- font awesome styles -->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!--[if IE 7]>
+        <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+</head>
+<body>
+    <!--
+        Upper Header Section
+    -->
+    <!--
+    Lower Header Section
+    -->
+    <div class="container">
+        <div id="gototop"> </div>
+
+
+        <!--
+        Navigation Bar Section
+        -->
+        <!--
+        Body Section
+        -->
+        <div class="row">
+            <div id="sidebar" class="span3">
+                <div class="well well-small">
+                    <ul class="nav">
+                        <li><a class="btn btn-dark text-white" href="~/Products/Index"><span class="icon-chevron-right"></span>Ürünlere Dön</a></li>
+                       
+
+                        
+                    </ul>
+                </div>
+
+              
+                <div class="well well-small"><a href="#"><img src="~/img/paypal.jpg" alt="payment method paypal"></a></div>
+
+               
+                <br>
+                <br>
+
+
+            </div>
+            <div class="span9">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Ana Sayfa</a> <span class="divider">/</span></li>
+                    <li class="active">ÜYE OL</li>
+                </ul>
+                <h3> Login</h3>
+                <hr class="soft" />
+
+                <div class="row">
+
+
+
+                    <div class="span4">
+                        <div class="well">
+                            <h5>Giriş</h5>
+                            <form asp-action="Login">
+                                @Html.AntiForgeryToken()
+                                @if (ViewBag.Message != null)
+                                {
+                                    <p class="text-danger">@ViewBag.Message</p>
+                                }
+
+                                <div class="control-group">
+                                    <label asp-for="UserName" class="control-label" for="inputName">Kullanıcı Adı</label>
+                                    <div class="controls">
+                                        <input class="span3" asp-for="UserName" type="text" placeholder="Kullanıcı Adı">
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label asp-for="Password" class="control-label" for="inputPassword">Şifre</label>
+                                    <div class="controls">
+                                        <input asp-for="Password" type="password" class="span3 text-danger" placeholder="Şifre">
+                                    </div>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <input type="submit" value="Giriş" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="span1"> &nbsp;</div>
+                    <div class="span4">
+                        <div class="well">
+                            <h5>Hesabınız Yok mu ?</h5><br />
+                            Şimdi Yeni Bir Üyelik Oluşturabilirsiniz..<br /><br /><br />
+                            <form>
+
+                                <ul class="nav pull-right">
+                                    <li class="">
+                                        <a class="btn btn-success" href="~/Account/Register"><span class="icon-user"></span> Hesap Oluştur </a>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--
+        Clients
+        -->
+        <section class="our_client">
+            <hr class="soften" />
+            <h4 class="title cntr"><span class="text">MARKALAR</span></h4>
+            <hr class="soften" />
+            <div class="row">
+                <div class="span2">
+                    <a href="#"><img alt="" src="~/img/1.png"></a>
+                </div>
+                <div class="span2">
+                    <a href="#"><img alt="" src="~/img/2.png"></a>
+                </div>
+                <div class="span2">
+                    <a href="#"><img alt="" src="~/img/3.png"></a>
+                </div>
+                <div class="span2">
+                    <a href="#"><img alt="" src="~/img/4.png"></a>
+                </div>
+                <div class="span2">
+                    <a href="#"><img alt="" src="~/img/5.png"></a>
+                </div>
+                <div class="span2">
+                    <a href="#"><img alt="" src="~/img/6.png"></a>
+                </div>
+            </div>
+        </section>
+
+        <!--
+        Footer
+        -->
+
+    </div><!-- /container -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+</body>
+</html>

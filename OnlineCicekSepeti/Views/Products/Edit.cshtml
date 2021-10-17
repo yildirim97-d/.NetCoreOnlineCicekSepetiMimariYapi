@@ -1,0 +1,71 @@
+﻿@*@model Entities.Entites.Product
+*@
+@using Business.Models.Reports;
+@model ProductsReportModel
+@{
+    ViewData["Title"] = "Güncelle";
+}
+
+<h1 style="text-align:center">@ViewData["Title"]</h1>
+
+
+<hr />
+<div class="">
+    <div class="col-md-4 center-form">
+
+        <form asp-action="Edit" autocomplete="off" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDescription" class="control-label"></label>
+                @*<input asp-for="Description" class="form-control" />*@
+                <textarea asp-for="ProductDescription" class="form-control"></textarea>
+                <span asp-validation-for="ProductDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitPriceText" class="control-label"></label>
+                <input asp-for="UnitPriceText" class="form-control" />
+                <span asp-validation-for="UnitPriceText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StockAmount" class="control-label"></label>
+                <input asp-for="StockAmount" class="form-control" />
+                <span asp-validation-for="StockAmount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
+                    <option value=""> -- Select -- </option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Image</label>
+                <input type="file" name="image" accept="@AppSettings.AcceptedImageExtensions" />
+            </div>
+            &nsub;
+            &nsub;
+            &nsub;
+            <a class="btn btn-danger" asp-action="DeleteProductImage" asp-controller="Products" asp-route-ImageId="@Model.Id">Resmi Sil</a>
+            @*<div class="form-group">
+            <label asp-for="Guid" class="control-label"></label>
+            <input asp-for="Guid" class="form-control" />
+            <span asp-validation-for="Guid" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div  class="col text-center padding1">
+    <a class="btn btn-dark" asp-action="Index">Liste'ye Geri Dön</a>
+</div>
+
